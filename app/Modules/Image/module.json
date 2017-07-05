@@ -1,0 +1,6 @@
+{
+    "name": "image",
+    "slug": "image",
+    "version": "1.0",
+    "description": "Used to fetch image with angular and give it to laravel"
+}

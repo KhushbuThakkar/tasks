@@ -1,0 +1,6 @@
+{
+    "name": "pdf",
+    "slug": "pdf",
+    "version": "1.0",
+    "description": "This module will import PDF and show it's contents"
+}
