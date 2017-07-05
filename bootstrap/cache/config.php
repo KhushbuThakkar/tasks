@@ -174,7 +174,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\htdocs\\whitePanda\\pdfImporter\\storage\\framework/cache/data',
+        'path' => 'D:\\htdocs\\whitePanda\\tasks\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -279,12 +279,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\htdocs\\whitePanda\\pdfImporter\\storage\\app',
+        'root' => 'D:\\htdocs\\whitePanda\\tasks\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\htdocs\\whitePanda\\pdfImporter\\storage\\app/public',
+        'root' => 'D:\\htdocs\\whitePanda\\tasks\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -317,7 +317,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\htdocs\\whitePanda\\pdfImporter\\resources\\views/vendor/mail',
+        0 => 'D:\\htdocs\\whitePanda\\tasks\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -397,7 +397,7 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\htdocs\\whitePanda\\pdfImporter\\storage\\framework/sessions',
+    'files' => 'D:\\htdocs\\whitePanda\\tasks\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -416,13 +416,13 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\htdocs\\whitePanda\\pdfImporter\\resources\\views',
+      0 => 'D:\\htdocs\\whitePanda\\tasks\\resources\\views',
     ),
-    'compiled' => 'D:\\htdocs\\whitePanda\\pdfImporter\\storage\\framework\\views',
+    'compiled' => 'D:\\htdocs\\whitePanda\\tasks\\storage\\framework\\views',
   ),
   'modules' => 
   array (
-    'path' => 'D:\\htdocs\\whitePanda\\pdfImporter\\app\\Modules',
+    'path' => 'D:\\htdocs\\whitePanda\\tasks\\app\\Modules',
     'enabled' => true,
     'namespace' => 'App\\Modules\\',
     'driver' => 'local',

@@ -7,7 +7,6 @@
 	  <div class="jumbotron">
 	     <h1>PDF Contents</h1> 
 	     <div>
-
 	     	{!! nl2br($text) !!}
 	     </div>
 	 </div>

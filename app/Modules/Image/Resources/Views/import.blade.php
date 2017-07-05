@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div ng-app="fupApp">
+    <div ng-app="imgEdit">
     <div id='alertBox'></div>
      <div class="container">
       <div class="">
          <h2>Image editing</h1> 
         
-            <div ng-controller="fupController">
+            <div ng-controller="imgController">
                 <div class="col-md-12">
                     Select an image file: <input type="file" id="fileInput" ng-files="getTheFiles($files)"/>
                 </div>
@@ -19,7 +19,7 @@
             	  	<img ng-src="<%myCroppedImage%>" />
                 </div>
                 <div class="col-md-12">
-                    <input type="button" ng-click="uploadFiles()" value="Upload" />
+                    <input type="button" class="btn btn-success" ng-click="uploadFiles()" value="Upload" />
                 </div>
 
             </div>
@@ -31,7 +31,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.js"></script>
 <script>
-    angular.module('fupApp', ['ngImgCrop'],function($interpolateProvider) {
+    angular.module('imgEdit', ['ngImgCrop'],function($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
 			}).directive('ngFiles', ['$parse', function ($parse) {
@@ -45,15 +45,15 @@
                 link: fn_link
             }
         } ])
-        .controller('fupController', function ($scope, $http) {
+        .controller('imgController', function ($scope, $http) {
             var formdata = new FormData();
             $scope.getTheFiles = function ($files) {
-            console.log($files);
+            //console.log($files);
             $scope.fileName=$files[0].name;
 
                 angular.forEach($files, function (value, key) {
                     formdata.append(key, value);
-                    console.log(key + ' ' + value.name);
+                    //console.log(key + ' ' + value.name);
                 });
             };
 
@@ -78,10 +78,10 @@
 
             // NOW UPLOAD THE FILES.
             $scope.uploadFiles = function () {
-            	console.log($scope.myCroppedImage);
+            	
 	            formdata.append('image',dataURItoBlob($scope.myCroppedImage));
 	            formdata.append('ext',$scope.fileName.split('.').pop());
-	            console.log('uploading files',dataURItoBlob($scope.myCroppedImage));
+	            
                 var request = {
                     method: 'POST',
                     url: '/api/upload/',
@@ -94,7 +94,7 @@
                 // SEND THE FILES.
                 $http(request)
                     .success(function (response) {
-                        console.log(response.message);
+                        
                         var myEl = angular.element( document.querySelector( '#alertBox' ) );
                         myEl.append(`<div class="alert alert-success">
                           <strong>Success!</strong> `+response.message+`
@@ -102,7 +102,7 @@
                         
                     })
                     .error(function ( response ) {
-                        console.log(response.message);
+                        
                         var myEl = angular.element( document.querySelector( '#alertBox' ) );
                         myEl.append(`<div class="alert alert-danger">
                           <strong>Success!</strong> `+response.message+`
@@ -127,7 +127,7 @@
 				    for (var i = 0; i < byteString.length; i++) {
 				        ia[i] = byteString.charCodeAt(i);
 				    }
-				    console.log(mimeString,'mimeString');
+				    
 				    return new Blob([ia], {type:mimeString});
 		}
         });

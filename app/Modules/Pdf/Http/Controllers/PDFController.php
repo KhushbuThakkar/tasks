@@ -17,13 +17,13 @@ class PDFController extends Controller
 			$parser = new \Smalot\PdfParser\Parser();
 
 			$pdf    = $parser->parseFile($file);
-			//dd('here');
+			
 			// Retrieve all pages from the pdf file.
 			$pages  = $pdf->getPages();
 
 			// Loop over each page to extract text.
 			foreach ($pages as $page) {
-			    $text=nl2br($page->getText());
+			    $text = $page->getText();
 			}
 			$data=array('text'=>$text);
 			//return View::make("PDFview", compact('text'));
@@ -32,7 +32,7 @@ class PDFController extends Controller
         } catch (\Exception $e) {
             if ($e->getMessage() != 'This pdf file are currently not supported.May be secured or corrupted!!' && strpos($e->getMessage(), 'TCPDF_PARSER') != 0) {
                         throw $e;
-                    }
+                }
         }
 		
 	}
